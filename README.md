@@ -37,6 +37,12 @@ Backend endpoints:
 
 - `GET /health`
 - `POST /api/contact` (expects JSON: `{ "name": "...", "email": "...", "message": "..." }`)
+- `GET /admin` (shows latest contact messages from Neon Postgres)
+
+## `/admin` access
+
+- If you set `ADMIN_TOKEN` in Render, then access `GET /admin?token=YOUR_ADMIN_TOKEN`.
+- If `ADMIN_TOKEN` is not set, `/admin` is open (dev convenience).
 
 ## Frontend -> Backend connection
 

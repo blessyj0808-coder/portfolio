@@ -1,3 +1,4 @@
+import os
 import re
 from typing import Any, Dict, Tuple
 
@@ -62,6 +63,67 @@ def _startup() -> None:
 
 
 _startup()
+
+
+def _admin_authorized() -> bool:
+    """
+    Simple admin protection for `/admin`.
+    - Set `ADMIN_TOKEN` in Render to require access.
+    - If `ADMIN_TOKEN` is not set, admin is open (dev convenience).
+    """
+    expected = os.getenv("ADMIN_TOKEN", "").strip()
+    if not expected:
+        return True
+
+    # Allow `GET /admin?token=...` for easy browser testing.
+    token = (request.args.get("token") or "").strip()
+
+    # Also support `Authorization: Bearer <token>`
+    if not token:
+        auth = (request.headers.get("Authorization") or "").strip()
+        if auth.lower().startswith("bearer "):
+            token = auth[7:].strip()
+
+    return token == expected
+
+
+@app.get("/admin")
+def admin() -> Any:
+    """
+    View latest contact form submissions stored in Neon Postgres.
+    """
+    if not _admin_authorized():
+        return jsonify({"ok": False, "error": "Unauthorized"}), 403
+
+    conn = get_connection()
+    with conn.cursor() as cur:
+        cur.execute("SELECT COUNT(*) FROM contact_messages;")
+        (total,) = cur.fetchone()
+
+        cur.execute(
+            """
+            SELECT id, name, email, message, created_at
+            FROM contact_messages
+            ORDER BY created_at DESC
+            LIMIT 20;
+            """
+        )
+        rows = cur.fetchall()
+
+    messages = []
+    for (msg_id, name, email, message, created_at) in rows:
+        created = created_at.isoformat() if created_at is not None else None
+        messages.append(
+            {
+                "id": msg_id,
+                "name": name,
+                "email": email,
+                "message": message,
+                "created_at": created,
+            }
+        )
+
+    return jsonify({"ok": True, "total": total, "messages": messages})
 
 
 if __name__ == "__main__":
