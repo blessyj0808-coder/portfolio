@@ -358,11 +358,24 @@ document.getElementById("csub").addEventListener("click", async () => {
     return;
   }
 
+  // Support multiple formats in `<meta name="api-url">`:
+  // - "https://backend.onrender.com"
+  // - "https://backend.onrender.com/api"
+  // - "https://backend.onrender.com/api/contact"
+  let endpoint = apiUrl.replace(/\/+$/, "");
+  if (/\/api\/contact$/i.test(endpoint)) {
+    // already the full path
+  } else if (/\/api$/i.test(endpoint)) {
+    endpoint = `${endpoint}/contact`;
+  } else {
+    endpoint = `${endpoint}/api/contact`;
+  }
+
   s.style.color = "var(--cyan)";
   s.textContent = "⚡ Transmission sent! ETA: shortly.";
 
   try {
-    const res = await fetch(`${apiUrl.replace(/\/$/, "")}/api/contact`, {
+    const res = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: n, email: e, message: m }),
@@ -370,7 +383,8 @@ document.getElementById("csub").addEventListener("click", async () => {
     const data = await res.json().catch(() => ({}));
 
     if (!res.ok || !data.ok) {
-      throw new Error(data.error || "Request failed.");
+      const details = data && data.error ? `: ${data.error}` : "";
+      throw new Error(`HTTP ${res.status}${details}`);
     }
 
     document.getElementById("fName").value = "";
@@ -380,6 +394,8 @@ document.getElementById("csub").addEventListener("click", async () => {
   } catch (err) {
     s.style.color = "var(--magenta)";
     s.textContent = `⚠ Transmission failed: ${String(err.message || err)}`;
+    // Keep a console log for debugging endpoint issues.
+    console.error("[contact] failed endpoint:", endpoint, err);
   } finally {
     setTimeout(() => {
       if (s) s.textContent = "";
