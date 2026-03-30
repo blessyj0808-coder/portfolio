@@ -1,5 +1,6 @@
 import os
 import re
+import html
 from typing import Any, Dict, Tuple
 
 from flask import Flask, jsonify, request
@@ -31,6 +32,7 @@ def _validate_payload(payload: Dict[str, Any]) -> Tuple[bool, str, Dict[str, str
 
 
 @app.get("/health")
+@app.get("/health/")
 def health() -> Any:
     return jsonify({"status": "ok"})
 
@@ -88,6 +90,7 @@ def _admin_authorized() -> bool:
 
 
 @app.get("/admin")
+@app.get("/admin/")
 def admin() -> Any:
     """
     View latest contact form submissions stored in Neon Postgres.
@@ -123,7 +126,44 @@ def admin() -> Any:
             }
         )
 
-    return jsonify({"ok": True, "total": total, "messages": messages})
+    payload = {"ok": True, "total": total, "messages": messages}
+
+    # If opened in a browser, return a readable HTML page.
+    # Frontend is not using /admin, but this prevents "blank page" confusion.
+    accept = (request.headers.get("Accept") or "").lower()
+    if "text/html" in accept:
+        if total == 0:
+            body = "<p>No contact messages yet.</p>"
+        else:
+            items = []
+            for m in messages:
+                items.append(
+                    "<li>"
+                    f"<div><b>{html.escape(str(m.get('name') or ''))}</b> "
+                    f"<span style='color:#666'>({html.escape(str(m.get('email') or ''))})</span></div>"
+                    f"<div style='font-size:13px;color:#111;margin-top:6px'>{html.escape(str(m.get('message') or ''))}</div>"
+                    f"<div style='color:#666;font-size:12px;margin-top:6px'>{html.escape(str(m.get('created_at') or ''))}</div>"
+                    f"</li>"
+                )
+            body = "<ul style='padding-left:18px'>" + "".join(items) + "</ul>"
+
+        return (
+            "<!doctype html>"
+            "<html><head><meta charset='utf-8'/>"
+            "<meta name='viewport' content='width=device-width,initial-scale=1'/>"
+            "<title>Admin - Contact Messages</title>"
+            "<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px} "
+            "h1{font-size:20px;margin-bottom:14px} "
+            "small{color:#666}</style>"
+            "</head><body>"
+            "<h1>Contact Messages (Neon)</h1>"
+            f"<small>Total: {total}</small>"
+            "<hr/>"
+            f"{body}"
+            "</body></html>"
+        )
+
+    return jsonify(payload)
 
 
 if __name__ == "__main__":
