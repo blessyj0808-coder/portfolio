@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blessy Shalom — Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Change this after you deploy the backend on Render -->
+  <meta name="api-url" content="http://localhost:5000">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <div class="hud tl"></div><div class="hud tr"></div><div class="hud bl"></div><div class="hud br"></div>
+  <div id="cur"></div><div id="cur2"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="logo">B<span>S</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#garage">Garage</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mob-menu" id="mobMenu">
+    <a href="#about" class="mm">About</a>
+    <a href="#garage" class="mm">Garage</a>
+    <a href="#projects" class="mm">Projects</a>
+    <a href="#education" class="mm">Education</a>
+    <a href="#contact" class="mm">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-kicker"><span class="kicker-line"></span><span id="kickerTxt"></span></div>
+      <h1 class="hero-name">
+        <span class="n1" id="gn1">Blessy</span>
+        <span class="n2" id="gn2">Shalom</span>
+      </h1>
+      <p class="hero-tagline">
+        <b>Student</b> &nbsp;·&nbsp; <b>Tech Enthusiast</b><br>
+        Future Data Analyst &amp; Web Developer<br>
+        <span style="font-size:12px">📍 Bengaluru, Karnataka</span>
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-neon a">Contact Me</a>
+        <a href="#projects" class="btn-neon b">View Projects</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="avatar-wrap">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="avatar-core" id="avatarCore">
+          <!-- Put your VS Code screenshot/photo here: frontend/assets/profile.png -->
+          <img class="avatar-img" id="avatarImg" src="assets/profile.png" alt="Blessy Shalom profile photo">
+        </div>
+        <div class="data-chip chip1">◈ Python 88%</div>
+        <div class="data-chip chip2">◈ Full Stack</div>
+        <div class="data-chip chip3">◈ Data Analyst</div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">SCROLL</div>
+  </section>
+
+  <div class="diag"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="none"><polygon points="0,0 1440,0 1440,10 0,60" fill="#070710"/></svg></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sh rv">
+      <div class="sec-kicker">// Pilot Profile</div>
+      <h2 class="sec-title">About <span class="hl">Me</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text rv from-left">
+        <p>I'm <strong>Blessy Shalom</strong> — a tech-driven student with relentless passion for <span class="c">data analytics</span>, <span class="m">web development</span>, and building systems that actually matter.</p>
+        <p>Currently pushing limits at <span class="y">Kristu Jayanti University, Bengaluru</span> — where every semester feels like qualifying for the next lap. Finance, statistics, and code are my fuel lines.</p>
+        <p>I believe great software, like a <span class="c">great machine</span>, is built on precision — every function tuned, every interface clean, every dataset queried at full throttle.</p>
+
+        <div class="journey-strip">
+          <div class="journey-title">// Web Dev Journey</div>
+          <div class="jstep"><div class="jstep-dot c"></div><div><div class="jstep-year">2021 — THE IGNITION</div><div class="jstep-text">Wrote first line of HTML. The web opened up. No going back.</div></div></div>
+          <div class="jstep"><div class="jstep-dot m"></div><div><div class="jstep-year">2022 — FIRST GEAR</div><div class="jstep-text">Discovered Python. Fell in love with loops, logic &amp; automation.</div></div></div>
+          <div class="jstep"><div class="jstep-dot y"></div><div><div class="jstep-year">2023 — THROTTLE UP</div><div class="jstep-text">Enrolled at Kristu Jayanti. Merged tech with finance &amp; stats.</div></div></div>
+          <div class="jstep"><div class="jstep-dot g"></div><div><div class="jstep-year">2024 — DATA LANE</div><div class="jstep-text">Deep-dived into data analytics — Pandas, Matplotlib, storytelling with numbers.</div></div></div>
+          <div class="jstep"><div class="jstep-dot c"></div><div><div class="jstep-year">2025 — FULL SPEED</div><div class="jstep-text">Building real projects. Connecting code, finance &amp; the future.</div></div></div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat"><span class="stat-n">5+</span><span class="stat-l">YRS CODING</span></div>
+          <div class="stat"><span class="stat-n">7+</span><span class="stat-l">SKILLS</span></div>
+          <div class="stat"><span class="stat-n">3+</span><span class="stat-l">PROJECTS</span></div>
+          <div class="stat"><span class="stat-n">∞</span><span class="stat-l">DRIVE</span></div>
+        </div>
+      </div>
+
+      <div class="skills-col rv from-right" id="skillsCont">
+        <div class="sec-kicker" style="margin-bottom:24px">// Skill Telemetry</div>
+        <div class="skill-row"><div class="skill-head"><span class="skill-nm">Python</span><span class="skill-pc" style="color:var(--cyan)">88%</span></div><div class="skill-track"><div class="skill-fill sf-c" data-w="88"></div></div></div>
+        <div class="skill-row"><div class="skill-head"><span class="skill-nm">Data Analysis</span><span class="skill-pc" style="color:var(--magenta)">85%</span></div><div class="skill-track"><div class="skill-fill sf-m" data-w="85"></div></div></div>
+        <div class="skill-row"><div class="skill-head"><span class="skill-nm">HTML / CSS</span><span class="skill-pc" style="color:var(--yellow)">82%</span></div><div class="skill-track"><div class="skill-fill sf-y" data-w="82"></div></div></div>
+        <div class="skill-row"><div class="skill-head"><span class="skill-nm">JavaScript</span><span class="skill-pc" style="color:var(--lime)">76%</span></div><div class="skill-track"><div class="skill-fill sf-g" data-w="76"></div></div></div>
+        <div class="skill-row"><div class="skill-head"><span class="skill-nm">Finance</span><span class="skill-pc" style="color:var(--orange)">80%</span></div><div class="skill-track"><div class="skill-fill sf-o" data-w="80"></div></div></div>
+        <div class="skill-row"><div class="skill-head"><span class="skill-nm">Statistics</span><span class="skill-pc" style="color:var(--cyan)">78%</span></div><div class="skill-track"><div class="skill-fill sf-c" data-w="78"></div></div></div>
+        <div class="trait-grid">
+          <div class="trait tc"><span class="trait-icon">🧠</span><span class="trait-label">Analytical</span></div>
+          <div class="trait tm"><span class="trait-icon">🚀</span><span class="trait-label">Driven</span></div>
+          <div class="trait ty"><span class="trait-icon">🎯</span><span class="trait-label">Precise</span></div>
+          <div class="trait tg"><span class="trait-icon">⚡</span><span class="trait-label">Fast Learner</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="diag" style="transform:scaleX(-1)"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><polygon points="0,0 1440,0 1440,60 0,10" fill="#04040a"/></svg></div>
+
+  <!-- GARAGE -->
+  <section id="garage">
+    <div class="sh rv" style="text-align:center">
+      <div class="sec-kicker" style="justify-content:center">// The Machine Fleet</div>
+      <h2 class="sec-title">The <span class="hl2">Garage</span></h2>
+      <div class="garage-intro"><p>Every great race car has an engine. <strong>These are mine</strong> — the tech tools I race with daily. Each one is a machine metaphor running at full throttle.</p></div>
+    </div>
+
+    <div class="garage-grid">
+      <div class="gcar c1 rv"><div class="gcar-bar"></div><div class="gcar-num">01</div><span class="gcar-icon" style="color:var(--cyan)">🐍</span><div class="gcar-tag" style="color:var(--cyan)">The V8 Engine</div><div class="gcar-title">Python</div><div class="gcar-metaphor">The turbocharged V8 under the hood. Raw power for data crunching, automation, and building anything fast. When you need torque — Python delivers.</div><div class="gcar-spec">◈ Pandas · NumPy · Matplotlib · Automation</div></div>
+      <div class="gcar c2 rv" style="transition-delay:.08s"><div class="gcar-bar"></div><div class="gcar-num">02</div><span class="gcar-icon" style="color:var(--magenta)">📊</span><div class="gcar-tag" style="color:var(--magenta)">The Telemetry System</div><div class="gcar-title">Data Analytics</div><div class="gcar-metaphor">The live telemetry — reading every metric, finding patterns in the noise, translating raw data into race-winning insights.</div><div class="gcar-spec">◈ EDA · Visualization · Statistics · Insights</div></div>
+      <div class="gcar c3 rv" style="transition-delay:.16s"><div class="gcar-bar"></div><div class="gcar-num">03</div><span class="gcar-icon" style="color:var(--yellow)">🌐</span><div class="gcar-tag" style="color:var(--yellow)">The Chassis &amp; Bodywork</div><div class="gcar-title">HTML / CSS</div><div class="gcar-metaphor">The sleek body kit and carbon-fibre frame. HTML is the skeleton, CSS is the livery — together they create the aerodynamic surface the world sees.</div><div class="gcar-spec">◈ Layouts · Animations · Responsive · Grid</div></div>
+      <div class="gcar c4 rv" style="transition-delay:.24s"><div class="gcar-bar"></div><div class="gcar-num">04</div><span class="gcar-icon" style="color:var(--lime)">⚡</span><div class="gcar-tag" style="color:var(--lime)">The Transmission</div><div class="gcar-title">JavaScript</div><div class="gcar-metaphor">The paddle-shift gearbox — converting intent into instant action. JS makes interfaces breathe, react, and accelerate. Interactivity at the speed of thought.</div><div class="gcar-spec">◈ DOM · APIs · Animations · Logic</div></div>
+      <div class="gcar c5 rv" style="transition-delay:.32s"><div class="gcar-bar"></div><div class="gcar-num">05</div><span class="gcar-icon" style="color:var(--orange)">💹</span><div class="gcar-tag" style="color:var(--orange)">The Navigation Computer</div><div class="gcar-title">Finance</div><div class="gcar-metaphor">The GPS and strategy computer. Finance is the map — knowing where the money flows, how markets turn, and which corner to hit for maximum exit speed.</div><div class="gcar-spec">◈ Markets · Risk · Budgeting · Valuation</div></div>
+      <div class="gcar c6 rv" style="transition-delay:.4s"><div class="gcar-bar"></div><div class="gcar-num">06</div><span class="gcar-icon" style="color:var(--cyan)">📐</span><div class="gcar-tag" style="color:var(--cyan)">The Aerodynamics Lab</div><div class="gcar-title">Statistics</div><div class="gcar-metaphor">The wind tunnel that optimizes everything — from hypothesis testing to confidence intervals. Where gut feeling ends, statistical truth takes over.</div><div class="gcar-spec">◈ Regression · Probability · Inference · Models</div></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>🐍 Python Engine</span><span class="dot">◆</span><span>📊 Data Telemetry</span><span class="dot">◆</span><span>🌐 HTML Chassis</span><span class="dot">◆</span><span>⚡ JS Transmission</span><span class="dot">◆</span><span>💹 Finance Nav</span><span class="dot">◆</span><span>📐 Stats Aero Lab</span><span class="dot">◆</span><span>🏁 Full Throttle</span><span class="dot">◆</span>
+      <span>🐍 Python Engine</span><span class="dot">◆</span><span>📊 Data Telemetry</span><span class="dot">◆</span><span>🌐 HTML Chassis</span><span class="dot">◆</span><span>⚡ JS Transmission</span><span class="dot">◆</span><span>💹 Finance Nav</span><span class="dot">◆</span><span>📐 Stats Aero Lab</span><span class="dot">◆</span><span>🏁 Full Throttle</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="proj-header rv">
+      <div class="proj-header-left">
+        <div class="sec-kicker">// Race Logs</div>
+        <h2 class="sec-title">Projects</h2>
+      </div>
+      <a href="https://github.com/blessyj0808-coder" target="_blank" class="proj-gh">⌨ GitHub Profile →</a>
+    </div>
+
+    <div class="proj-grid">
+      <div class="pcard pcard-featured rv">
+        <div class="pfeat-left">
+          <div class="pcard-stripe ps1" style="margin-bottom:28px"></div>
+          <span class="pcard-num">// FEATURED — PROJECT-001</span>
+          <h3 class="pcard-title">Data Race Analyzer</h3>
+          <p class="pcard-desc">A Python-based analytics dashboard that ingests raw CSVs, cleans messy datasets, and renders insight-rich visualizations. Built for speed — from raw data to story in seconds.</p>
+          <div class="pcard-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Matplotlib</span><span class="ptag">Data Viz</span></div>
+          <div class="pcard-links"><a href="#" class="plnk pv">View Project</a><a href="https://github.com/blessyj0808-coder" target="_blank" class="plnk pg">GitHub ↗</a></div>
+        </div>
+        <div class="pfeat-right">
+          <div class="code-win">
+            <div class="code-win-bar"><div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div></div>
+            <div class="code-body">
+              <span class="cm">import</span> <span class="cw">pandas</span> <span class="cm">as</span> <span class="cw">pd</span><br>
+              <span class="cm">import</span> <span class="cw">matplotlib</span><br><br>
+              <span class="ct">df</span> <span class="cw">= pd.read_csv(</span><span class="cy">'data.csv'</span><span class="cw">)</span><br>
+              <span class="ct">clean</span> <span class="cw">= df.dropna()</span><br><br>
+              <span class="cg"># Analyze speed patterns</span><br>
+              <span class="ct">insights</span> <span class="cw">= clean.describe()</span><br>
+              <span class="cw">print(</span><span class="cy">"Lap time:"</span><span class="cw">, insights)</span><br><br>
+              <span class="cg"># Render telemetry chart</span><br>
+              <span class="ct">chart</span><span class="cw">.plot(</span><span class="ct">clean</span><span class="cw">[</span><span class="cy">'speed'</span><span class="cw">])</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard rv" id="tc2" style="transition-delay:.1s">
+        <div class="pcard-stripe ps2"></div>
+        <div class="pcard-body">
+          <span class="pcard-num">// PROJECT-002</span>
+          <h3 class="pcard-title">Finance Dashboard</h3>
+          <p class="pcard-desc">A web-based portfolio tracker with real-time stock data, risk metrics, and interactive charts. Finance meets front-end at high speed.</p>
+          <div class="pcard-tags"><span class="ptag">JavaScript</span><span class="ptag">Finance API</span><span class="ptag">Charts</span></div>
+          <div class="pcard-links"><a href="#" class="plnk pv">View</a><a href="https://github.com/blessyj0808-coder" target="_blank" class="plnk pg">GitHub ↗</a></div>
+        </div>
+      </div>
+      <div class="pcard rv" id="tc3" style="transition-delay:.2s">
+        <div class="pcard-stripe ps3"></div>
+        <div class="pcard-body">
+          <span class="pcard-num">// PROJECT-003</span>
+          <h3 class="pcard-title">Stat Engine</h3>
+          <p class="pcard-desc">Statistical modeling toolkit for regression, hypothesis testing, and predictive analysis. A precision instrument for data scientists.</p>
+          <div class="pcard-tags"><span class="ptag">Statistics</span><span class="ptag">Python</span><span class="ptag">ML</span></div>
+          <div class="pcard-links"><a href="#" class="plnk pv">View</a><a href="https://github.com/blessyj0808-coder" target="_blank" class="plnk pg">GitHub ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="diag"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><polygon points="0,60 1440,0 1440,60" fill="#04040a"/></svg></div>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="sh rv">
+      <div class="sec-kicker">// Track Record</div>
+      <h2 class="sec-title">Education</h2>
+    </div>
+    <div class="edu-wrap">
+      <div class="edu-card rv">
+        <div class="edu-left"></div>
+        <div class="edu-right">
+          <div class="edu-flag">🎓 ACTIVE ENROLLMENT · 2023 — PRESENT</div>
+          <div class="edu-school">Kristu Jayanti University</div>
+          <div class="edu-loc">📍 Bengaluru, Karnataka</div>
+          <div class="edu-desc">Pursuing a degree at the intersection of <strong>technology, finance, and data science</strong>. Every semester is a new qualifier — data analytics, statistics, and programming form the core racing lines. The goal: graduate as a fully-tuned data analyst with frontend chops.</div>
+          <div class="edu-tags">
+            <span class="etag">Data Analytics</span><span class="etag">Finance</span><span class="etag">Statistics</span><span class="etag">Python</span><span class="etag">Web Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sh rv" style="text-align:center;margin-bottom:50px">
+      <div class="sec-kicker" style="justify-content:center">// Open Channel</div>
+      <h2 class="sec-title">Let's <span class="hl">Connect</span></h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-left rv from-left">
+        <h3>// Signal Acquired</h3>
+        <p>Ready to collaborate, connect, or geek out over data, code, or machines? Transmission channel is open. Response time: fast.</p>
+        <a href="mailto:blessyj0808@gmail.com" class="clink"><div class="clink-icon">✉</div><span class="clink-text">blessyj0808@gmail.com</span></a>
+        <a href="https://github.com/blessyj0808-coder" target="_blank" class="clink"><div class="clink-icon">⌨</div><span class="clink-text">github.com/blessyj0808-coder</span></a>
+        <div class="clink"><div class="clink-icon">📍</div><span class="clink-text">Bengaluru, Karnataka</span></div>
+      </div>
+
+      <div class="cform rv from-right">
+        <div class="cform-field"><label>Pilot Name</label><input type="text" id="fName" placeholder="Your name" autocomplete="off"></div>
+        <div class="cform-field"><label>Frequency (Email)</label><input type="email" id="fEmail" placeholder="your@email.com" autocomplete="off"></div>
+        <div class="cform-field"><label>Transmission</label><textarea id="fMsg" placeholder="Your message..."></textarea></div>
+        <button class="csub" id="csub">⚡ Transmit Message</button>
+        <div class="cstatus" id="cstat"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">BLESSY SHALOM</span>
+    <div class="footer-sub">Bengaluru, Karnataka &nbsp;◆&nbsp; Full Throttle, Always</div>
+    <div class="footer-copy">© 2025 Blessy Shalom. All Rights Reserved.</div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
